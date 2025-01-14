@@ -1,0 +1,7 @@
+#!/bin/bash
+
+AUTHOR="Satineee"
+
+# Trouver tous les fichiers sources et d'en-tête C++ et parcourir l'historique de commits
+# Compter toutes les lignes ajoutées par l'auteur
+git log --author="$AUTHOR" --pretty=tformat: --numstat | grep -E '^[0-9]+\s' | awk '{sum += $1} END {print "Total des lignes ajoutées par", "'$AUTHOR'", ":", sum}'
